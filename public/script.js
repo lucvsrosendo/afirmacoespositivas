@@ -1,25 +1,19 @@
-const btn = document.getElementById('btn');
-const affirmationText = document.getElementById('affirmation');
-
-btn.addEventListener('click', async () => {
+async function generateAffirmation() {
     try {
-        affirmationText.classList.add("fade-out");
-
-        setTimeout(async () => { 
         const response = await fetch("/affirmation");
         const data = await response.json();
 
-        affirmationText.textContent = data.affirmation;
+        const phraseElement = document.getElementById("affirmation");
 
-        affirmationText.classList.remove("fade-out");
-        affirmationText.classList.add("fade-in");
+        // Fade out
+        phraseElement.style.opacity = "0";
 
         setTimeout(() => {
-            affirmationText.classList.remove("fade-in");
-        }, 800);
-
-    }, 800);   
+            phraseElement.textContent = data.affirmation;
+            phraseElement.style.opacity = "1";
+        }, 200);
+        
     } catch (error) {
-        affirmationText.textContent = "Ops! Algo deu errado :(  -  Tente Novamente ;) ";
+        console.error("Erro ao buscar frase:", error);
     }
-});
+}

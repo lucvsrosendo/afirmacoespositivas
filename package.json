@@ -13,7 +13,7 @@
     "nodejs",
     "express"
   ],
-  "author": "Seu Nome",
+  "author": "Lucas Figueiredo Rosendo",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"

@@ -1,18 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gerador de Afirmações Positivas</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Gerador de Afirmações Positivas</h1>
-            <button id="affirmation">Click Here</button>
-            <p id="btn">Click Here</p>
-        </div>
-        <script src="script.js"></script>
-    </body>
-</html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerador de Afirmações</title>
 
+<style>
+  body {
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  #affirmation {
+    font-size: 24px;
+    margin-top: 30px;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+
+  button {
+    padding: 12px 25px;
+    background: #3a7Bff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    opacity: 0.7;
+  }
+</style>
+</head>
+
+<body>
+  <h1>✨ Gerador de Afirmações Positivas ✨</h1>
+
+  <button onclick="generateAffirmation()">Clique Aqui</button>
+
+  <p id="affirmation"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
