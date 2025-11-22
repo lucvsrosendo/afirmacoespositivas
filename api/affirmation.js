@@ -1,4 +1,4 @@
-module.exports = (req, res) => {
+export default function handler(req, res) {
   const affirmations = [
     "Saúde, Sorte, Sabedoria!",
     "Todos os dias, Sob todos os pontos de vista, Vou cada vez melhor!",
@@ -12,4 +12,4 @@ module.exports = (req, res) => {
 
   const random = affirmations[Math.floor(Math.random() * affirmations.length)];
   res.status(200).json({ affirmation: random });
-};
+}
