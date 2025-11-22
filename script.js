@@ -1,6 +1,6 @@
 async function generateAffirmation() {
     try {
-        const response = await fetch("/affirmation");
+        const response = await fetch("/api/affirmation");
         const data = await response.json();
 
         const phraseElement = document.getElementById("affirmation");
