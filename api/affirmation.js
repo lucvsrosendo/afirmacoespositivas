@@ -1,15 +1,15 @@
-export default function handler(req, res) {
+module.exports = (req, res) => {
   const affirmations = [
     "Saúde, Sorte, Sabedoria!",
-  "Todos os dias, Sob todos os pontos de vista, Vou cada vez melhor!",
-  "Eu Transbordo em Vitalidade e Saúde!",
-  "Eu Sou Luz e Sorte!",
-  "Eu Sou Luz!",
-  "Eu Sou Luz e Gratidão!",
-  "Luz, Vida, Amor!",
-  "O Dinheiro Vem a Mim de Forma Fácil, Alegre e Com Abundância!"
+    "Todos os dias, Sob todos os pontos de vista, Vou cada vez melhor!",
+    "Eu Transbordo em Vitalidade e Saúde!",
+    "Eu Sou Luz e Sorte!",
+    "Eu Sou Luz!",
+    "Eu Sou Luz e Gratidão!",
+    "Luz, Vida, Amor!",
+    "O Dinheiro Vem a Mim de Forma Fácil, Alegre e Com Abundância!"
   ];
 
   const random = affirmations[Math.floor(Math.random() * affirmations.length)];
   res.status(200).json({ affirmation: random });
-}
+};
