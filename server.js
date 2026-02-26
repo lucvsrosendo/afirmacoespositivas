@@ -1,20 +1,13 @@
-const express = require('express');
-const fs = require('fs');
-const app = express();
-const port = 3000;
+const fs = require("fs");
+const path = require("path");
 
-// Servir front
-app.use(express.static("public"));
+module.exports = (req, res) => {
+    const filePath = path.join(process.cwd(), "frases.json");
+    const affirmations = JSON.parse(fs.readFileSync(filePath, "utf8"));
 
-// Carregar frases do arquivo
-const affirmations = JSON.parse(fs.readFileSync("./frases.json", "utf8"));
-
-// API que retorna frase aleatória
-app.get('/affirmation', (req, res) => {
     const randomIndex = Math.floor(Math.random() * affirmations.length);
-    res.json({ affirmation: affirmations[randomIndex] });
-});
 
-app.listen(port, () => {
-    console.log(`🔥 Servidor rodando em http://localhost:${port}`);
-});
+    res.status(200).json({
+        affirmation: affirmations[randomIndex]
+    });
+};
