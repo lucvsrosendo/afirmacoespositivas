@@ -7,12 +7,17 @@ function App() {
     const fetchAffirmation = async () => {
         try {
             setIsFading(true);
-            const response = await fetch("/affirmation");
+
+            // 🔥 CORREÇÃO AQUI
+            const response = await fetch("/api/affirmation");
             const data = await response.json();
+
             setTimeout(() => {
-                setAffirmation(data.affirmation);
+                // 🔥 CORREÇÃO AQUI
+                setAffirmation(data.frase);
                 setIsFading(false);
             }, 200);
+
         } catch (error) {
             console.error("Erro ao buscar frase:", error);
             setIsFading(false);
@@ -35,8 +40,12 @@ function App() {
                         O resultado é um ambiente mais calmo, com menos ruído interno e maior capacidade de decisão.
                     </p>
                     <div className="actions">
-                        <button className="btn-primary" onClick={fetchAffirmation}>Gerar nova afirmação</button>
-                        <a className="btn-outline" href="#corporativo">Ver aplicação corporativa</a>
+                        <button className="btn-primary" onClick={fetchAffirmation}>
+                            Gerar nova afirmação
+                        </button>
+                        <a className="btn-outline" href="#corporativo">
+                            Ver aplicação corporativa
+                        </a>
                     </div>
                 </div>
 
