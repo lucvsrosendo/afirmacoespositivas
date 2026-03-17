@@ -1,12 +1,19 @@
-const fs = require('fs')
-const path = require('path')
+import fs from 'fs'
+import path from 'path'
 
 export default function handler(req, res) {
-  const filePath = path.join(process.cwd(), 'api', 'frases.json')
-  
-  const frases = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
+  try {
+    const filePath = path.resolve('api/frases.json')
 
-  const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)]
+    const frases = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
 
-  res.status(200).json({ frase: fraseAleatoria })
+    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)]
+
+    res.status(200).json({ frase: fraseAleatoria })
+  } catch (error) {
+    res.status(500).json({
+      erro: 'Erro ao ler frases',
+      detalhe: error.message
+    })
+  }
 }
