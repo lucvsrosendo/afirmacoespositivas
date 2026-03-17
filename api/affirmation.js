@@ -9,6 +9,8 @@ export default function handler(req, res) {
 
     const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)]
 
+    res.setHeader('Cache-Control', 'no-store') // evita repetir frase
+
     res.status(200).json({ frase: fraseAleatoria })
   } catch (error) {
     res.status(500).json({
